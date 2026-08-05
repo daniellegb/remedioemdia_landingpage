@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remédio em Dia | Organização de Medicamentos e Rotina de Saúde</title>
+  <meta name="description" content="O Remédio em Dia ajuda você a organizar medicamentos, tratamentos e compromissos de saúde em um só lugar. Acompanhe horários, estoque e validade com praticidade e segurança." />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="remédios, medicamentos, organização de medicamentos, lembrete de remédio, controle de remédios, saúde, tratamentos, calendário de medicamentos, relatórios de saúde, app de remédios" />
+  <link rel="canonical" href="https://app.remedioemdia.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Remédio em Dia | Organização de Medicamentos e Rotina de Saúde" />
+  <meta property="og:description" content="O Remédio em Dia ajuda você a organizar medicamentos, tratamentos e compromissos de saúde em um só lugar. Acompanhe horários, estoque e validade com praticidade e segurança." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://app.remedioemdia.com/" />
+  <meta property="og:site_name" content="Remédio em Dia" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Remédio em Dia | Organização de Medicamentos e Rotina de Saúde" />
+  <meta name="twitter:description" content="O Remédio em Dia ajuda você a organizar medicamentos, tratamentos e compromissos de saúde em um só lugar. Acompanhe horários, estoque e validade com praticidade e segurança." />
+
+  <!-- Dados Estruturados JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://app.remedioemdia.com/#website",
+          "url": "https://app.remedioemdia.com/",
+          "name": "Remédio em Dia",
+          "description": "Organização de Medicamentos e Rotina de Saúde",
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Remédio em Dia",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web, Mobile, Desktop",
+          "url": "https://app.remedioemdia.com/",
+          "description": "Serviço digital criado para ajudar na organização da rotina de medicamentos, consultas, exames e cuidados com a saúde.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+          }
+        }
+      ]
+    }
+  </script>
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    :focus-visible {
+      outline: 3px solid #0d9488;
+      outline-offset: 2px;
+    }
+    /* Ocultar barra de rolagem no simulador */
+    .no-scrollbar::-webkit-scrollbar,
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar,
+    .scrollbar-none {
+      -ms-overflow-style: none;  /* IE/Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50/35 text-slate-800 font-sans antialiased">
+
+  <!-- ========================================== -->
+  <!-- 1. HEADER FIXO -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 inset-x-0 bg-white border-b border-slate-100 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-lg">
+        <img 
+          src="remedio-em-dia-logo-horizontal.png" 
+          alt="Remédio em Dia" 
+          onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex';"
+          class="h-8 md:h-9 w-auto object-contain"
+          referrerpolicy="no-referrer"
+        />
+        <div class="hidden items-center gap-2">
+          <svg class="w-6 h-6 text-teal-600 animate-pulse" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span class="font-display font-extrabold text-lg md:text-xl text-slate-800 tracking-tight">Remédio<span class="text-teal-600">emDia</span></span>
+        </div>
+      </a>
+      
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#recursos" class="hover:text-teal-600 transition-colors">Recursos</a>
+        <a href="#como-funciona" class="hover:text-teal-600 transition-colors">Como funciona</a>
+        <a href="#planos" class="hover:text-teal-600 transition-colors">Planos</a>
+        <a href="#seguranca" class="hover:text-teal-600 transition-colors">Segurança</a>
+      </nav>
+      
+      <!-- Botão CTA -->
+      <div class="flex items-center gap-3">
+        <a href="https://app.remedioemdia.com/dashboard" target="_blank" rel="noopener noreferrer" class="bg-teal-600 hover:bg-teal-700 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-xl transition-all shadow-md shadow-teal-600/10 active:scale-95 cursor-pointer flex items-center justify-center">
+          Começar grátis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Espaçador do Header -->
+  <div class="h-16"></div>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION -->
+  <!-- ========================================== -->
+  <section class="py-12 md:py-20 lg:py-24 px-4 max-w-4xl mx-auto text-center space-y-6">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-xs font-semibold border border-teal-100/50">
+      🛡️ Organização da rotina de saúde
+    </span>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-none">
+      O app organiza, você <span class="text-teal-600">se tranquiliza</span>
+    </h1>
+
+    <!-- Vídeo de Apresentação Vimeo -->
+    <div class="w-full max-w-3xl mx-auto my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 aspect-video">
+      <iframe
+        src="https://player.vimeo.com/video/1215927223"
+        class="w-full h-full border-0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title="Vídeo de Apresentação Remédio em Dia"
+      ></iframe>
+    </div>
+
+    <div class="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed space-y-4">
+      <p>
+        <strong class="text-slate-900 font-semibold">Tenha o controle completo da sua rotina de saúde em um só lugar.</strong>
+      </p>
+      <p>
+        O Remédio em Dia organiza medicamentos, tratamentos e compromissos. Visualize toda a sua rotina de saúde no painel Hoje e no Calendário Inteligente. Acompanhe alertas importantes, como horários de administração dos medicamentos, níveis de estoque, medicamentos próximos do vencimento, consultas e exames agendados. Gere relatórios completos para acompanhar seu histórico de cuidados e tenha todas as informações centralizadas em um único lugar.
+      </p>
+      <p>
+        <strong class="text-teal-700 font-semibold">Mais organização, mais segurança e mais tranquilidade para você e sua família.</strong>
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-3 justify-center pt-2">
+      <a href="https://app.remedioemdia.com/dashboard" target="_blank" rel="noopener noreferrer" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-4 rounded-2xl transition-all shadow-lg shadow-teal-600/20 active:scale-95 text-sm md:text-base cursor-pointer flex items-center justify-center gap-2">
+        Começar grátis
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+      <a href="#como-funciona" class="border border-slate-300 hover:border-teal-500 bg-white text-slate-700 font-bold px-6 py-4 rounded-2xl transition-all active:scale-95 text-sm md:text-base inline-flex items-center justify-center gap-1.5">
+        Ver como funciona
+      </a>
+    </div>
+    
+    <p class="text-xs text-slate-400 italic">
+      * Grátis para até 3 medicamentos simultâneos, sem necessidade de cartão de crédito.
+    </p>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. BARRA DE CREDIBILIDADE / VALOR -->
+  <!-- ========================================== -->
+  <div class="bg-teal-900 text-teal-100 py-10 px-4 border-y border-teal-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex gap-3.5 items-start">
+        <div class="p-2.5 bg-teal-800 rounded-xl text-teal-300 shrink-0">
+          <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-base">Estoque Totalmente Controlado</h4>
+          <p class="text-teal-200 text-xs md:text-sm mt-1 leading-relaxed">O estoque é recalculado quando você registrar cada dose tomada. Tenha a tranquilidade de saber quando o seu estoque termina, ou quando a validade irá expirar.</p>
+        </div>
+      </div>
+      <div class="flex gap-3.5 items-start">
+        <div class="p-2.5 bg-teal-800 rounded-xl text-teal-300 shrink-0">
+          <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-base">Regimes Flexíveis de Verdade</h4>
+          <p class="text-teal-200 text-xs md:text-sm mt-1 leading-relaxed">De regime de uso contínuo a regimes por intervalos, anticoncepcionais com pausa automática e uso sob demanda (S.O.S). O app calcula os horários certos para cada tipo de tratamento.</p>
+        </div>
+      </div>
+      <div class="flex gap-3.5 items-start">
+        <div class="p-2.5 bg-teal-800 rounded-xl text-teal-300 shrink-0">
+          <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-base">Calendário Inteligente</h4>
+          <p class="text-teal-200 text-xs md:text-sm mt-1 leading-relaxed">Visualize todos os tratamentos e compromissos médicos com tranquilidade e exatidão. Perceba facilmente quais doses foram tomadas, quais ainda estão pendentes e seu estoque no futuro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 4. SEÇÃO DE DOR / AGITAÇÃO DO PROBLEMA -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 bg-slate-100/50">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <span class="text-rose-600 font-bold tracking-widest text-xs uppercase bg-rose-50 border border-rose-100/30 px-3 py-1 rounded-full">
+        A Rotina Sem Organização Custa Caro
+      </span>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
+        Lidar com tratamentos não precisa ser uma fonte constante de ansiedade.
+      </h2>
+      <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+        Todos nós já passamos por isso: a dúvida angustiante se já tomou ou não o comprimido do dia, abrir a gaveta na hora de deitar e descobrir que o remédio acabou, ou perder prazos de exames importantes. Para quem cuida de si ou de um familiar, a falta de clareza gera riscos sérios.
+      </p>
+      <div class="p-5 bg-white rounded-3xl border border-slate-200 flex flex-col md:flex-row gap-6 text-left shadow-sm mt-8">
+        <div class="flex-1 space-y-2">
+          <p class="text-xs font-black text-rose-500 uppercase flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            O método tradicional falha
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed">Alarmes genéricos de celular ou anotações em papel não sabem quantos comprimidos restam na caixa, não calculam horários de antibióticos nem pulam automaticamente os dias de pausa do anticoncepcional. Medicamentos vencem sem que você perceba e acabam justamente quando mais precisa deles.</p>
+        </div>
+        <div class="w-px bg-slate-200 hidden md:block"></div>
+        <div class="flex-1 space-y-2">
+          <p class="text-xs font-black text-teal-600 uppercase flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+            O Remédio em Dia resolve
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed">Une um painel cronológico diário sincronizado com o controle de estoque de forma automática. O painel torna claro quais remédios tomar no dia, avisa quando estão próximos de vencer ou perto de acabar, suas consultas e exames que estão por vir e a sua adesão diária ao tratamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. RECURSOS DO APP (GRID DE 9 CARDS) -->
+  <!-- ========================================== -->
+  <section id="recursos" class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-16 space-y-3">
+      <span class="text-xs font-bold text-teal-600 uppercase bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100/50">
+        Recursos
+      </span>
+      <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight">Projetado com foco absoluto no cuidado diário</h2>
+      <p class="text-slate-500 text-sm md:text-base max-w-lg mx-auto">Funcionalidades práticas criadas para simplificar o seu acompanhamento de saúde, sem complicações tecnológicas.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Painel Diário "Hoje"</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Veja todos os remédios do dia, marque quais já tomou e acompanhe o progresso através do gráfico. Saiba quais medicamentos estão para acabar ou vencer com antecedência. Seus próximos compromissos também aparecem aqui.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Calendário Inteligente</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Visualize clareza e facilidade o seu tratamento no passado, presente e futuro. Em um mesmo calendário, datas anteriores mostram o seu histórico de remédios tomados, na data presente os remédios do dia de hoje e para datas futuras informações sobre o seu estoque de medicamentos. Assim como os seus compromissos.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Estoque e Validade Controlados</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Sempre que registrar a dose tomada no painel, o estoque diminui. O sistema mostra alertas distintos e independentes: cinza para estoque baixo, evitando interrupção, e vermelho para validade vencendo ou vencida, aumentando a segurança do tratamento.</p>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Regimes de Uso Flexíveis</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Cadastre medicamentos de uso contínuo, regimes por intervalos de dias, longos períodos, antibióticos, anticoncepcionais com pausa automática de doses ou tomadas sob demanda (S.O.S). O app calcula os horários certos para cada tipo de tratamento.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Compromissos de Saúde</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Registre consultas médicas e exames no app. Nunca mais perca um agendamento de saúde importante. Seja direcionado a um clique para aplicativos de GPS como Waze ou Google Maps com o endereço de destino para ganhar tempo e praticidade.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Relatórios de Histórico em PDF</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Gere e baixe na hora um relatório em PDF com o histórico completo de tomadas. Tenha o controle do seu histórico de tratamento em suas mãos para controle próprio, de familiares de sua confiança ou do seu médico.</p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Dispositivos e Sessões Ativas</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Informações de saúde são pessoais. Esqueceu o app ligado em um computador de terceiros? Roubaram o seu celular com o app logado? Feche qualquer conexão indesejada com este recurso.</p>
+        </div>
+      </div>
+
+      <!-- Card 8 (BETA) -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 relative overflow-hidden flex flex-col justify-between">
+        <span class="absolute top-3 right-3 bg-amber-50 text-amber-700 text-[9px] px-2.5 py-1 rounded-full font-bold border border-amber-100 uppercase tracking-wider">
+          Beta / Exp
+        </span>
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Lembretes Push no Navegador</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">Receba notificações diretamente na tela do seu computador, tablet ou celular. Um canal complementar prático para manter seu tratamento em dia.</p>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-3xs hover:shadow-md transition duration-300 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg">Constante Evolução</h4>
+          <p class="text-slate-500 text-xs md:text-sm leading-relaxed">O Remédio em Dia está em evolução contínua. Novos recursos e melhorias são adicionados regularmente para tornar sua experiência cada vez melhor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. COMO FUNCIONA (PASSO A PASSO) -->
+  <!-- ========================================== -->
+  <section id="como-funciona" class="py-20 px-4 bg-teal-50/20 border-t border-teal-100/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 space-y-3">
+        <span class="text-xs font-bold text-teal-600 uppercase bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100/30">
+          Simplicidade na Prática
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight">Sua nova rotina em apenas 3 passos</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Passo 1 -->
+        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-3xs relative">
+          <span class="absolute -top-5 left-6 bg-teal-600 text-white w-10 h-10 rounded-xl font-display font-extrabold flex items-center justify-center shadow-lg shadow-teal-600/10 text-lg">1</span>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg mt-4">Cadastre a Medicação</h4>
+          <p class="text-slate-500 text-xs md:text-sm mt-2 leading-relaxed">Informe o nome do medicamento, a dose (ex.: 1 comprimido, 10 gotas), a quantidade disponível no seu estoque (ex.: 30 comprimidos) e a validade da embalagem.</p>
+        </div>
+        
+        <!-- Passo 2 -->
+        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-3xs relative">
+          <span class="absolute -top-5 left-6 bg-teal-600 text-white w-10 h-10 rounded-xl font-display font-extrabold flex items-center justify-center shadow-lg shadow-teal-600/10 text-lg">2</span>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg mt-4">Marque ao Tomar</h4>
+          <p class="text-slate-500 text-xs md:text-sm mt-2 leading-relaxed">Consulte seu painel "Hoje" e faça a checagem diária. Marque a dose tomada, o app desconta automaticamente e atualiza a quantidade em estoque</p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-3xs relative">
+          <span class="absolute -top-5 left-6 bg-teal-600 text-white w-10 h-10 rounded-xl font-display font-extrabold flex items-center justify-center shadow-lg shadow-teal-600/10 text-lg">3</span>
+          <h4 class="font-bold text-slate-800 text-base md:text-lg mt-4">Fique Avisado</h4>
+          <p class="text-slate-500 text-xs md:text-sm mt-2 leading-relaxed">Consulte o painel Hoje ou o Calendário Inteligente para acompanhar seus medicamentos e visualizar alertas sobre estoque e validade, ajudando você a manter seu tratamento sempre em dia.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-slate-600 text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed">
+          E mais: organize também consultas e outros compromissos de saúde e seja avisado no mesmo painel e calendário.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6B. DEMONSTRAÇÃO INTERATIVA (SIMULADOR DO PAINEL HOJE) -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12 space-y-3">
+        <span class="text-xs font-bold text-teal-600 uppercase bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100/50">
+          Painel Hoje
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight">
+          Veja como é fácil manter seu tratamento em dia
+        </h2>
+        <p class="text-slate-500 text-sm md:text-base max-w-2xl mx-auto">
+          Explore uma demonstração do painel Hoje e descubra como o Remédio em Dia organiza seus medicamentos, compromissos e alertas.
+        </p>
+      </div>
+
+      <!-- Interactive App Simulator Mockup -->
+      <div class="w-full flex flex-col items-center justify-center mt-8">
+        <div class="w-full max-w-sm mx-auto">
+          <div class="border-[10px] border-slate-800 rounded-[2.5rem] shadow-2xl bg-slate-900 overflow-hidden relative">
+            <!-- Notch -->
+            <div class="absolute top-0 inset-x-0 h-4 bg-slate-800 rounded-b-xl w-28 mx-auto z-20"></div>
+            
+            <!-- Phone screen container -->
+            <div class="bg-[#F4F7F9] text-slate-800 h-[560px] pt-7 flex flex-col justify-between select-none relative overflow-hidden">
+              <div class="flex-1 overflow-y-auto no-scrollbar pb-16 pt-2">
+                
+                <!-- 1. Header (Logo & Initials) -->
+                <div class="flex justify-between items-center px-4 py-2 bg-white border-b border-slate-100 shadow-3xs">
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-7 h-7 rounded-full bg-teal-50 flex items-center justify-center border border-teal-100 shrink-0">
+                      <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                    </div>
+                    <div class="text-left flex flex-col">
+                      <span class="text-[10px] font-black text-slate-900 tracking-tight leading-none">Remédio</span>
+                      <span class="text-[8px] font-bold text-teal-600 tracking-tight leading-none mt-0.5">em Dia</span>
+                    </div>
+                  </div>
+                  <div class="w-7 h-7 rounded-full bg-teal-800 flex items-center justify-center shadow-xs shrink-0">
+                    <span class="text-white text-[10px] font-black">MC</span>
+                  </div>
+                </div>
+
+                <!-- 2. Greeting block -->
+                <div class="p-4 text-left">
+                  <h2 class="text-base font-black text-slate-900 tracking-tight">Olá, Marina Costa!</h2>
+                  <p class="text-[10px] text-slate-500 font-semibold mt-0.5">Hoje é dia 13 de julho</p>
+                  <p class="text-[9px] text-slate-400 italic mt-1 leading-normal">
+                    Se precisar descansar, descanse — você merece.
+                  </p>
+                </div>
+
+                <!-- 3. Progress Donut Card -->
+                <div class="mx-4 bg-white rounded-2xl border border-slate-100 p-4 shadow-sm text-center">
+                  <div class="flex justify-center mb-3">
+                    <div class="relative w-24 h-24 flex items-center justify-center">
+                      <svg viewBox="0 0 120 120" class="w-24 h-24 transform -rotate-90">
+                        <circle cx="60" cy="60" r="50" stroke-width="12" stroke="#F1F5F9" fill="transparent" />
+                        <circle id="html-ring-tomados" cx="60" cy="60" r="50" stroke-width="12" stroke="#10B981" fill="transparent" stroke-dasharray="104.72 314.16" stroke-dashoffset="0" stroke-linecap="round" class="transition-all duration-300" />
+                        <circle id="html-ring-atrasados" cx="60" cy="60" r="50" stroke-width="12" stroke="#F59E0B" fill="transparent" stroke-dasharray="104.72 314.16" stroke-dashoffset="-104.72" stroke-linecap="round" class="transition-all duration-300" />
+                        <circle id="html-ring-pendentes" cx="60" cy="60" r="50" stroke-width="12" stroke="#3B82F6" fill="transparent" stroke-dasharray="104.72 314.16" stroke-dashoffset="-209.44" stroke-linecap="round" class="transition-all duration-300" />
+                      </svg>
+                      <div class="absolute flex flex-col items-center">
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 class="font-extrabold text-slate-800 text-xs tracking-tight mb-3">Progresso do Dia</h3>
+
+                  <div class="grid grid-cols-3 gap-1 border-t border-slate-50 pt-3">
+                    <div class="flex flex-col items-center">
+                      <span id="html-cnt-tomados" class="text-sm md:text-base font-black text-[#10B981]">1</span>
+                      <span class="text-[7px] font-bold text-slate-400 tracking-wider">TOMADOS</span>
+                    </div>
+                    <div class="flex flex-col items-center border-x border-slate-100">
+                      <span id="html-cnt-pendentes" class="text-sm md:text-base font-black text-[#3B82F6]">1</span>
+                      <span class="text-[7px] font-bold text-slate-400 tracking-wider">PENDENTES</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <span id="html-cnt-atrasados" class="text-sm md:text-base font-black text-[#F59E0B]">1</span>
+                      <span class="text-[7px] font-bold text-slate-400 tracking-wider">ATRASADOS</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 bg-slate-50 border border-dashed border-slate-200 rounded-xl py-2 px-3">
+                    <p id="html-progress-desc" class="text-[9px] text-slate-600 font-semibold leading-normal text-left">
+                      Você já completou 33% da sua rotina hoje.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 4. Doses Section -->
+                <div class="mt-5 px-4 flex justify-between items-center">
+                  <div class="flex items-center gap-1.5 text-slate-800">
+                    <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-[11px] font-extrabold tracking-tight">Horários de Hoje</span>
+                  </div>
+                  <span class="bg-slate-100 text-slate-500 text-[8px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">
+                    3 DOSES
+                  </span>
+                </div>
+
+                <!-- Doses List -->
+                <div class="mx-4 mt-3 space-y-2">
+                  <!-- Dose 1 -->
+                  <div id="html-dose-card-1" class="bg-white rounded-xl border border-slate-100 p-3 flex items-center justify-between shadow-xs transition-all opacity-75 scale-[0.98] bg-slate-100/40">
+                    <div class="flex items-center gap-2.5">
+                      <span id="html-dose-time-1" class="text-[10px] font-black min-w-[32px] text-slate-400">08:00</span>
+                      <div class="w-0.5 h-5 rounded-full bg-slate-300"></div>
+                      <div class="text-left">
+                        <h4 id="html-dose-title-1" class="text-[10px] font-extrabold text-slate-400 line-through">Omeprazol</h4>
+                        <span class="text-[8px] text-slate-400 font-semibold">1 cápsula</span>
+                      </div>
+                    </div>
+                    <button onclick="toggleHtmlDose(1)" class="w-5 h-5 rounded-full flex items-center justify-center transition cursor-pointer bg-teal-500 border border-teal-500 text-white">
+                      <svg class="w-3 h-3 stroke-[3]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    </button>
+                  </div>
+
+                  <!-- Dose 2 -->
+                  <div id="html-dose-card-2" class="bg-white rounded-xl border border-slate-100 p-3 flex items-center justify-between shadow-xs transition-all">
+                    <div class="flex items-center gap-2.5">
+                      <span id="html-dose-time-2" class="text-[10px] font-black min-w-[32px] text-slate-700">14:00</span>
+                      <div class="w-0.5 h-5 rounded-full bg-amber-500"></div>
+                      <div class="text-left">
+                        <h4 id="html-dose-title-2" class="text-[10px] font-extrabold text-slate-800">Vitamina D</h4>
+                        <span class="text-[8px] text-slate-400 font-semibold">1 gota</span>
+                      </div>
+                      <span id="html-atrasado-badge" class="bg-amber-50 text-amber-700 border border-amber-100 text-[7px] font-black px-1 py-0.5 rounded uppercase tracking-wider ml-1">
+                        ⚠️ Atrasado
+                      </span>
+                    </div>
+                    <button onclick="toggleHtmlDose(2)" class="w-5 h-5 rounded-full flex items-center justify-center transition cursor-pointer border border-amber-400 bg-white">
+                      <svg class="w-3 h-3 stroke-[3] text-white hidden" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    </button>
+                  </div>
+
+                  <!-- Dose 3 -->
+                  <div id="html-dose-card-3" class="bg-white rounded-xl border border-slate-100 p-3 flex items-center justify-between shadow-xs transition-all">
+                    <div class="flex items-center gap-2.5">
+                      <span id="html-dose-time-3" class="text-[10px] font-black min-w-[32px] text-slate-700">20:00</span>
+                      <div class="w-0.5 h-5 rounded-full bg-blue-500"></div>
+                      <div class="text-left">
+                        <h4 id="html-dose-title-3" class="text-[10px] font-extrabold text-slate-800">Atenolol</h4>
+                        <span class="text-[8px] text-slate-400 font-semibold">1 comprimido</span>
+                      </div>
+                    </div>
+                    <button onclick="toggleHtmlDose(3)" class="w-5 h-5 rounded-full flex items-center justify-center transition cursor-pointer border border-slate-300 bg-white">
+                      <svg class="w-3 h-3 stroke-[3] text-white hidden" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 5. Eventual Dose Section -->
+                <div class="mt-5 px-4 text-left">
+                  <div class="flex items-center gap-1.5 text-slate-800 mb-2.5">
+                    <svg class="w-3.5 h-3.5 text-purple-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-[11px] font-extrabold tracking-tight">Registro de dose eventual</span>
+                  </div>
+                  
+                  <button id="html-btn-dose-eventual" onclick="toggleHtmlEventualSelector(true)" class="w-full bg-[#FAF5FF] border border-[#E9D5FF] hover:bg-[#F3E8FF] text-[#7E22CE] font-bold py-2 px-4 rounded-xl text-[10px] transition flex items-center justify-center gap-2 cursor-pointer">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                    Tomei dose eventual
+                  </button>
+
+                  <div id="html-eventual-selector-card" class="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm relative transition-all hidden">
+                    <div class="flex justify-between items-center mb-3">
+                      <span class="text-[9px] font-black text-[#94A3B8] tracking-widest uppercase">SELECIONE O MEDICAMENTO</span>
+                      <button onclick="toggleHtmlEventualSelector(false)" class="text-slate-400 hover:text-slate-600 transition p-1 rounded-full hover:bg-slate-50 border border-slate-100 flex items-center justify-center w-5 h-5 shrink-0 cursor-pointer">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </button>
+                    </div>
+
+                    <div class="space-y-2.5">
+                      <button onclick="registerHtmlEventualPill('Paracetamol')" class="w-full bg-[#F8FAFC] border border-[#EDF2F7] hover:bg-[#EDF2F7] rounded-xl p-3 flex items-center justify-between transition-all text-left cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-8 h-8 rounded-lg bg-[#3B82F6] flex items-center justify-center text-white shrink-0">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                          </div>
+                          <div>
+                            <h4 class="text-[10px] font-extrabold text-slate-800 leading-none">Paracetamol</h4>
+                            <span class="text-[9px] text-slate-400 font-semibold block mt-1">S.O.S</span>
+                          </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-slate-400 rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                      </button>
+
+                      <button onclick="triggerHtmlToast('ℹ️ O cadastro completo de remédio S.O.S está disponível no aplicativo principal!')" class="w-full border border-dashed border-slate-200 hover:bg-slate-50/50 rounded-xl p-3 flex items-center justify-between transition-all text-left cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 shrink-0">
+                            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                          </div>
+                          <div>
+                            <h4 class="text-[10px] font-extrabold text-slate-700 leading-none">Cadastrar novo remédio SN</h4>
+                            <span class="text-[8px] text-slate-400 font-semibold block mt-1">Remédio de uso eventual</span>
+                          </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-slate-400 rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- 6. Alerts of Stock and Validity -->
+              <div class="mt-5 px-4 text-left">
+                <div class="flex items-center gap-1.5 text-slate-800 mb-2.5">
+                  <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                  <span class="text-[11px] font-extrabold tracking-tight">Alertas de Estoque e Validade</span>
+                </div>
+                
+                <div class="space-y-2">
+                  <div class="bg-white rounded-xl border border-slate-100 p-2.5 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center shrink-0">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                      </div>
+                      <div>
+                        <h4 class="text-[10px] font-extrabold text-slate-800">Vitamina D</h4>
+                        <span class="mt-0.5 inline-block bg-amber-50 text-amber-700 border border-amber-100 text-[7px] font-bold px-1 py-0.5 rounded uppercase tracking-wider">
+                          ⚠️ ESTOQUE ACABANDO (3D)
+                        </span>
+                      </div>
+                    </div>
+                    <span id="html-vitd-stock" class="text-[9px] text-slate-500 font-bold bg-slate-100 px-1.5 py-0.5 rounded">
+                      3 comprimidos
+                    </span>
+                  </div>
+
+                  <div class="bg-white rounded-xl border border-slate-100 p-2.5 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center shrink-0">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                      </div>
+                      <div>
+                        <h4 class="text-[10px] font-extrabold text-slate-800">Omeprazol</h4>
+                        <span class="mt-0.5 inline-block bg-amber-50 text-amber-700 border border-amber-100 text-[7px] font-bold px-1 py-0.5 rounded uppercase tracking-wider">
+                          ⚠️ VENCENDO EM 2D
+                        </span>
+                      </div>
+                    </div>
+                    <span class="text-[9px] text-slate-500 font-bold bg-slate-100 px-1.5 py-0.5 rounded">
+                      28 comprimidos
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Upcoming Appointments Section -->
+              <div class="mt-5 px-4 text-left">
+                <div class="flex items-center gap-1.5 text-slate-800 mb-2.5">
+                  <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  <span class="text-[11px] font-extrabold tracking-tight">Próximos Compromissos</span>
+                </div>
+
+                <div class="space-y-3">
+                  <!-- Lab Laboratórios Expanded -->
+                  <div id="html-appt-lab-expanded" class="bg-white rounded-3xl border border-blue-400 p-4 shadow-sm relative transition-all duration-300 hidden">
+                    <div onclick="toggleHtmlAppt(null)" class="flex items-center justify-between cursor-pointer mb-3.5">
+                      <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 bg-blue-500 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-sm">
+                          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 2v7.586a1 1 0 0 1-.293.707l-3.414 3.414a2 2 0 0 0-.586 1.414V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3.879a2 2 0 0 0-.586-1.414l-3.414-3.414a1 1 0 0 1-.293-.707V2" />
+                            <path d="M6 16h12" />
+                            <path d="M8 2h8" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 class="text-[11px] font-extrabold text-slate-800">Lab Laboratórios</h4>
+                        </div>
+                      </div>
+                      <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+                    </div>
+
+                    <div class="space-y-3.5">
+                      <div class="flex items-start gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                          <span class="text-[9px] text-[#94A3B8] font-black tracking-wider uppercase block mb-0.5">DATA E HORA</span>
+                          <span class="text-[10px] font-black text-slate-700 block">28/07/2026 • 10:30</span>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                          <span class="text-[9px] text-[#94A3B8] font-black tracking-wider uppercase block mb-0.5">LOCAL</span>
+                          <span class="text-[10px] font-black text-slate-700 block leading-normal">
+                            Avenida Paulista, Consolação, São Paulo, Região Sudeste, 01414-000, Brasil
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-2.5 ml-10.5 mt-1">
+                        <button onclick="triggerHtmlToast('🗺️ Abrindo endereço no Google Maps...')" class="bg-[#F8FAFC] border border-[#EDF2F7] font-bold py-1 px-3 rounded-xl text-[9px] flex items-center gap-1 transition text-slate-700 shadow-3xs hover:bg-[#EDF2F7] cursor-pointer">
+                          Google Maps
+                        </button>
+                        <button onclick="triggerHtmlToast('🚗 Calculando rota no Waze...')" class="bg-[#F8FAFC] border border-[#EDF2F7] font-bold py-1 px-3 rounded-xl text-[9px] flex items-center gap-1 transition text-slate-700 shadow-3xs hover:bg-[#EDF2F7] cursor-pointer">
+                          Waze
+                        </button>
+                      </div>
+
+                      <div class="flex gap-2.5 pt-3.5 border-t border-slate-100 mt-3.5">
+                        <button onclick="triggerHtmlToast('ℹ️ Edição disponível no aplicativo principal.')" class="flex-1 py-2 px-3 rounded-xl text-[10px] font-bold text-[#3B82F6] bg-blue-50/50 border border-blue-100 flex items-center justify-center gap-1 transition cursor-pointer hover:bg-blue-50">
+                          Editar
+                        </button>
+                        <button onclick="triggerHtmlToast('ℹ️ Exclusão disponível no aplicativo principal.')" class="flex-1 py-2 px-3 rounded-xl text-[10px] font-bold text-red-600 bg-red-50/50 border border-red-100 flex items-center justify-center gap-1 transition cursor-pointer hover:bg-red-50">
+                          Excluir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Lab Laboratórios Collapsed -->
+                  <div id="html-appt-lab-collapsed" onclick="setExpandedAppt('lab')" class="bg-white rounded-2xl border border-slate-100 p-3 flex items-center justify-between shadow-xs cursor-pointer">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-8 h-8 rounded-full bg-[#EFF6FF] flex items-center justify-center text-blue-600 shrink-0">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M10 2v7.586a1 1 0 0 1-.293.707l-3.414 3.414a2 2 0 0 0-.586 1.414V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3.879a2 2 0 0 0-.586-1.414l-3.414-3.414a1 1 0 0 1-.293-.707V2" />
+                          <path d="M6 16h12" />
+                          <path d="M8 2h8" />
+                        </svg>
+                      </div>
+                      <div class="text-left">
+                        <h4 class="text-[10px] font-extrabold text-slate-800">Lab Laboratórios</h4>
+                        <span class="text-[8px] text-slate-400 font-bold block">Ultrassom • 28/07/2026 às 10:30</span>
+                      </div>
+                    </div>
+                    <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+
+                  <!-- Dr. Armando Expanded -->
+                  <div id="html-appt-armando-expanded" class="bg-white rounded-3xl border border-blue-400 p-4 shadow-sm relative transition-all duration-300 hidden">
+                    <div onclick="toggleHtmlAppt(null)" class="flex items-center justify-between cursor-pointer mb-3.5">
+                      <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 bg-blue-500 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-sm">
+                          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 2.5h3" />
+                            <path d="M16.5 2.5h3" />
+                            <path d="M6 2.5v4.5A4.5 4.5 0 0 0 10.5 11.5h3a4.5 4.5 0 0 0 4.5-4.5V2.5" />
+                            <path d="M12 11.5V17a3 3 0 0 0 6 0v-2.5" />
+                            <circle cx="18" cy="13" r="2" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h4 class="text-[11px] font-extrabold text-slate-800">Dr. Armando</h4>
+                        </div>
+                      </div>
+                      <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+                    </div>
+
+                    <div class="space-y-3.5">
+                      <div class="flex items-start gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                          <span class="text-[9px] text-[#94A3B8] font-black tracking-wider uppercase block mb-0.5">DATA E HORA</span>
+                          <span class="text-[10px] font-black text-slate-700 block">30/07/2026 • 16:00</span>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                          <span class="text-[9px] text-[#94A3B8] font-black tracking-wider uppercase block mb-0.5">LOCAL</span>
+                          <span class="text-[10px] font-black text-slate-700 block leading-normal">
+                            Avenida Paulista, Consolação, São Paulo, Região Sudeste, 01414-000, Brasil
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-2.5 ml-10.5 mt-1">
+                        <button onclick="triggerHtmlToast('🗺️ Abrindo endereço no Google Maps...')" class="bg-[#F8FAFC] border border-[#EDF2F7] font-bold py-1 px-3 rounded-xl text-[9px] flex items-center gap-1 transition text-slate-700 shadow-3xs hover:bg-[#EDF2F7] cursor-pointer">
+                          Google Maps
+                        </button>
+                        <button onclick="triggerHtmlToast('🚗 Calculando rota no Waze...')" class="bg-[#F8FAFC] border border-[#EDF2F7] font-bold py-1 px-3 rounded-xl text-[9px] flex items-center gap-1 transition text-slate-700 shadow-3xs hover:bg-[#EDF2F7] cursor-pointer">
+                          Waze
+                        </button>
+                      </div>
+
+                      <div class="flex gap-2.5 pt-3.5 border-t border-slate-100 mt-3.5">
+                        <button onclick="triggerHtmlToast('ℹ️ Edição disponível no aplicativo principal.')" class="flex-1 py-2 px-3 rounded-xl text-[10px] font-bold text-[#3B82F6] bg-blue-50/50 border border-blue-100 flex items-center justify-center gap-1 transition cursor-pointer hover:bg-blue-50">
+                          Editar
+                        </button>
+                        <button onclick="triggerHtmlToast('ℹ️ Exclusão disponível no aplicativo principal.')" class="flex-1 py-2 px-3 rounded-xl text-[10px] font-bold text-red-600 bg-red-50/50 border border-red-100 flex items-center justify-center gap-1 transition cursor-pointer hover:bg-red-50">
+                          Excluir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dr. Armando Collapsed -->
+                  <div id="html-appt-armando-collapsed" onclick="setExpandedAppt('armando')" class="bg-white rounded-2xl border border-slate-100 p-3 flex items-center justify-between shadow-xs cursor-pointer">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-8 h-8 rounded-full bg-[#EFF6FF] flex items-center justify-center text-blue-600 shrink-0">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4.5 2.5h3" />
+                          <path d="M16.5 2.5h3" />
+                          <path d="M6 2.5v4.5A4.5 4.5 0 0 0 10.5 11.5h3a4.5 4.5 0 0 0 4.5-4.5V2.5" />
+                          <path d="M12 11.5V17a3 3 0 0 0 6 0v-2.5" />
+                          <circle cx="18" cy="13" r="2" />
+                        </svg>
+                      </div>
+                      <div class="text-left">
+                        <h4 class="text-[10px] font-extrabold text-slate-800">Dr. Armando</h4>
+                        <span class="text-[8px] text-slate-400 font-bold block">Cardiologista • 30/07/2026 às 16:00</span>
+                      </div>
+                    </div>
+                    <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+
+              <!-- Persistent Bottom Tab Bar -->
+              <div class="bg-white border-t border-slate-100 p-2 flex justify-between shadow-md z-10 absolute bottom-0 inset-x-0">
+                <button class="flex-1 py-1 flex flex-col items-center justify-center text-teal-600 font-bold cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <span class="text-[7px] mt-0.5 font-bold">Hoje</span>
+                </button>
+                <button onclick="triggerHtmlToast('Comece hoje mesmo e veja todas as funcionalidades do Calendário!')" class="flex-1 py-1 flex flex-col items-center justify-center text-slate-400 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  <span class="text-[7px] mt-0.5">Calendário</span>
+                </button>
+                <button onclick="triggerHtmlToast('Comece hoje mesmo e gerencie seus remédios completos!')" class="flex-1 py-1 flex flex-col items-center justify-center text-slate-400 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></svg>
+                  <span class="text-[7px] mt-0.5">Remédios</span>
+                </button>
+                <button onclick="triggerHtmlToast('Comece hoje mesmo e veja seus compromissos!')" class="flex-1 py-1 flex flex-col items-center justify-center text-slate-400 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 2.5h3" />
+                    <path d="M16.5 2.5h3" />
+                    <path d="M6 2.5v4.5A4.5 4.5 0 0 0 10.5 11.5h3a4.5 4.5 0 0 0 4.5-4.5V2.5" />
+                    <path d="M12 11.5V17a3 3 0 0 0 6 0v-2.5" />
+                    <circle cx="18" cy="13" r="2" />
+                  </svg>
+                  <span class="text-[7px] mt-0.5">Compromissos</span>
+                </button>
+                <button onclick="triggerHtmlToast('Comece hoje mesmo para acessar a aba de Configurações!')" class="flex-1 py-1 flex flex-col items-center justify-center text-slate-400 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span class="text-[7px] mt-0.5">Ajustes</span>
+                </button>
+              </div>
+
+              <!-- Toast box container -->
+              <div id="html-toast-box" class="absolute bottom-16 inset-x-4 bg-teal-950 text-teal-100 text-[9px] px-3 py-2 rounded-xl shadow-lg border border-teal-800 z-30 font-semibold text-center hidden leading-normal">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 mt-6 italic text-center font-medium">
+          Baseado na interface real do aplicativo
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. PROVA SOCIAL (PLACEHOLDERS REAIS) -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold text-teal-600 uppercase bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100/30">
+        Opinião de quem já usa
+      </span>
+      <h2 class="text-2xl md:text-3xl font-display font-extrabold text-slate-900 tracking-tight mt-3">Experiências Reais de Pacientes</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="bg-slate-50 p-6 rounded-2xl border border-dashed border-slate-300 flex flex-col justify-between">
+        <!-- INSERIR DEPOIMENTO REAL AQUI -->
+        <p class="text-xs text-slate-400 italic leading-relaxed">
+          [ Espaço reservado para depoimento real de usuário. Comentário correspondente no HTML original: &lt;!-- INSERIR DEPOIMENTO REAL AQUI --&gt; ]
+        </p>
+        <div class="mt-6 border-t border-slate-200 pt-4 flex items-center gap-3">
+          <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-full flex items-center justify-center text-xs font-bold">U1</div>
+          <div>
+            <h5 class="text-xs font-bold text-slate-600">[Aguardando Depoimento Real]</h5>
+            <p class="text-[10px] text-slate-400 font-medium">[Ex: Paciente crônico com diabetes]</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-slate-50 p-6 rounded-2xl border border-dashed border-slate-300 flex flex-col justify-between">
+        <!-- INSERIR DEPOIMENTO REAL AQUI -->
+        <p class="text-xs text-slate-400 italic leading-relaxed">
+          [ Espaço reservado para depoimento real de usuário. Comentário correspondente no HTML original: &lt;!-- INSERIR DEPOIMENTO REAL AQUI --&gt; ]
+        </p>
+        <div class="mt-6 border-t border-slate-200 pt-4 flex items-center gap-3">
+          <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-full flex items-center justify-center text-xs font-bold">U2</div>
+          <div>
+            <h5 class="text-xs font-bold text-slate-600">[Aguardando Depoimento Real]</h5>
+            <p class="text-[10px] text-slate-400 font-medium">[Ex: Cuidador de familiar idoso]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. COMPARATIVO DE PLANOS -->
+  <!-- ========================================== -->
+  <section id="planos" class="py-20 px-4 bg-slate-100/50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 space-y-3">
+        <span class="text-xs font-bold text-teal-600 uppercase bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100/35">
+          Valores Transparentes
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight">O plano perfeito para a sua rotina</h2>
+        <p class="text-slate-500 text-sm md:text-base max-w-lg mx-auto">
+          Comece a ter mais organização e tranquilidade hoje mesmo! Use gratuitamente até 3 cadastros de medicamento e 5 cadastros de compromissos, com todas as funcionalidades liberadas. Faça o upgrade para premium apenas se precisar de mais cadastros!
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <!-- Plano Gratuito -->
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-slate-800">Plano Gratuito</h3>
+            <p class="text-xs text-slate-500 mt-1">Organização essencial para quem usa poucos medicamentos.</p>
+            
+            <div class="my-6">
+              <span class="text-3xl md:text-4xl font-display font-black text-slate-900">Grátis</span>
+            </div>
+            
+            <ul class="space-y-3 text-xs md:text-sm text-slate-600 border-t border-slate-100 pt-6">
+              <li class="flex items-center gap-2">✔️ <span class="font-semibold text-slate-800">Até 3 medicamentos ativos</span></li>
+              <li class="flex items-center gap-2">✔️ <span class="font-semibold text-slate-800">Até 5 compromissos ativos</span> (consultas/exames)</li>
+              <li class="flex items-center gap-2">✔️ Painel Diário "Hoje" completo</li>
+              <li class="flex items-center gap-2">✔️ Controle de estoque físico</li>
+              <li class="flex items-center gap-2">✔️ Calendário mensal integrado</li>
+              <li class="flex items-center gap-2">✔️ Sem anúncios invasivos</li>
+            </ul>
+          </div>
+          
+          <a href="https://app.remedioemdia.com/dashboard" target="_blank" rel="noopener noreferrer" class="mt-8 w-full border border-slate-300 hover:border-teal-500 hover:bg-slate-50 text-slate-700 hover:text-teal-700 font-bold py-3 px-4 rounded-xl transition text-xs md:text-sm cursor-pointer flex items-center justify-center">
+            Começar grátis
+          </a>
+        </div>
+        
+        <!-- Plano Premium -->
+        <div class="bg-white p-8 rounded-3xl border-2 border-teal-600 shadow-xl flex flex-col justify-between relative">
+          <span class="absolute -top-3 right-6 bg-teal-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+            Recomendado
+          </span>
+          
+          <div>
+            <h3 class="text-lg font-bold text-slate-800">Plano Premium ✨</h3>
+            <p class="text-xs text-slate-500 mt-1">Medicamentos e consultas sem barreiras para sua saúde.</p>
+            
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl md:text-4xl font-display font-black text-teal-600">R$ 14,90</span>
+                <span class="text-xs text-slate-400 font-medium">/mês</span>
+              </div>
+              <div class="mt-2 inline-flex items-center gap-1 bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                <span>✨ Preço promocional de lançamento</span>
+              </div>
+            </div>
+            
+            <ul class="space-y-3 text-xs md:text-sm text-slate-600 border-t border-slate-100 pt-6">
+              <li class="flex items-center gap-2">✔️ <span class="font-bold text-slate-800">Medicamentos ativos ILIMITADOS</span></li>
+              <li class="flex items-center gap-2">✔️ <span class="font-bold text-slate-800">Compromissos ativos ILIMITADOS</span></li>
+              <li class="flex items-center gap-2">✔️ Painel Diário "Hoje" completo</li>
+              <li class="flex items-center gap-2">✔️ Controle de estoque físico</li>
+              <li class="flex items-center gap-2">✔️ Calendário mensal integrado</li>
+              <li class="flex items-center gap-2">✔️ Gestão de assinatura direta pelo app</li>
+              <li class="flex items-center gap-2">✔️ Suporte técnico prioritário</li>
+            </ul>
+          </div>
+          
+          <a href="https://app.remedioemdia.com/dashboard" target="_blank" rel="noopener noreferrer" class="mt-8 w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-teal-600/10 transition text-xs md:text-sm cursor-pointer flex items-center justify-center">
+            Experimentar Grátis
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 9. SEGURANÇA E CONFIANÇA -->
+  <!-- ========================================== -->
+  <section id="seguranca" class="py-20 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <svg class="w-12 h-12 text-teal-600 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+      </svg>
+      <h2 class="text-3xl font-display font-extrabold text-slate-900 tracking-tight">Sua privacidade e confiança em primeiro lugar</h2>
+      <p class="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        Não tratamos suas informações de saúde como mercadoria. Implementamos regras rígidas de segurança digital. Você tem controle absoluto e pode excluir sua conta a qualquer momento direto pelo painel de ajustes.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6">
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+          <h4 class="font-bold text-slate-800 text-sm">Seus dados são só seus</h4>
+          <p class="text-slate-500 text-xs mt-1 leading-normal">Conformidade total com a LGPD. Seus dados de medicamentos nunca são compartilhados ou vendidos. Eles servem unicamente para a organização do seu tratamento diário e pessoal.</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+          <h4 class="font-bold text-slate-800 text-sm">Cancelamento sem Pegadinhas</h4>
+          <p class="text-slate-500 text-xs mt-1 leading-normal">Se assinar o plano Premium e decidir cancelar, você mantém o acesso total a todos os seus dados, utilizando todos os recursos até o final do ciclo de pagamento contratado. Ao retornar para o plano gratuito, você escolhe quais medicamentos e compromissos manterá ativos.</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+          <h4 class="font-bold text-slate-800 text-sm">Sessões Ativas sob Controle</h4>
+          <p class="text-slate-500 text-xs mt-1 leading-normal">Veja quais aparelhos estão conectados à sua conta e revogue o acesso de qualquer dispositivo instantaneamente no painel de segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 10. FAQ COM OBJEÇÕES DE VENDA -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 flex flex-col items-center gap-1">
+        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <h2 class="text-3xl font-display font-extrabold text-slate-900 tracking-tight mt-1">Perguntas Frequentes</h2>
+      </div>
+      
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>O aplicativo é gratuito de verdade?</span>
+            <span id="faq-icon-1" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-1" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            Sim! No plano gratuito, você pode cadastrar até 3 medicamentos ativos e até 5 compromissos de saúde ativos, com acesso ao painel Hoje, controle de estoque físico, Calendário Inteligente, geração de relatórios e muito mais. Não solicitamos dados de cartão de crédito para começar.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>Consigo gerenciar os remédios dos meus pais ou filhos?</span>
+            <span id="faq-icon-2" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-2" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            Com certeza. O Remédio em Dia também foi pensado para quem cuida da medicação de outra pessoa, como um idoso, uma criança ou outro familiar. Você pode alternar entre os perfis Autocuidado e Cuidador a qualquer momento, deixando a experiência sempre adequada ao seu contexto. Os medicamentos, o estoque e os compromissos continuam organizados da mesma forma.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>Meus dados de saúde ficam realmente seguros?</span>
+            <span id="faq-icon-3" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-3" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            Sua privacidade é prioridade máxima. Seus dados de saúde são tratados com total segurança e respeito. Suas informações são acessíveis unicamente por você. O Remédio em Dia segue à risca os princípios da LGPD e nunca compartilha ou vende seus dados.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>Como funcionam os avisos de estoque e validade?</span>
+            <span id="faq-icon-4" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-4" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            Sempre que você marca uma dose como tomada no painel, o sistema atualiza automaticamente o estoque cadastrado. O Remédio em Dia monitora de forma independente o estoque e a data de validade de cada caixa de medicamento, exibindo alertas visuais distintos no painel Hoje e no Calendário Inteligente para evitar surpresas ou riscos à sua saúde.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(5)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>As notificações funcionam em qualquer celular?</span>
+            <span id="faq-icon-5" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-5" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            O recurso de notificações push via navegador é um diferencial secundário atualmente em fase experimental (beta). Recomendamos o uso do Painel Diário "Hoje" como pilar de acompanhamento principal na sua rotina diária. 
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <button onclick="toggleFaq(6)" class="w-full text-left p-5 flex justify-between items-center font-bold text-slate-800 text-sm md:text-base cursor-pointer">
+            <span>Preciso instalar um aplicativo?</span>
+            <span id="faq-icon-6" class="text-slate-400">＋</span>
+          </button>
+          <div id="faq-ans-6" class="hidden p-5 border-t border-slate-100 text-slate-600 text-xs md:text-sm bg-slate-50/50">
+            O Remédio em Dia funciona diretamente no navegador do seu celular. Basta acessar sua conta para começar a usar. No futuro, também haverá versões disponíveis nas lojas de aplicativos.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 11. CTA FINAL -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 bg-teal-900 text-white text-center border-t border-teal-800">
+    <div class="max-w-3xl mx-auto space-y-6">
+      <h2 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">Recupere o controle da sua rotina de saúde hoje</h2>
+      <p class="text-teal-200 text-sm md:text-base max-w-lg mx-auto">
+        Junte-se ao Remédio em Dia para organizar suas tomadas diárias e de quem você ama com simplicidade, acolhimento e segurança.
+      </p>
+      
+      <div class="pt-4 flex flex-col items-center gap-3">
+        <a href="https://app.remedioemdia.com/dashboard" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-100 text-teal-950 font-bold px-8 py-4 rounded-xl text-sm md:text-base shadow-lg cursor-pointer transition flex items-center justify-center">
+          Começar grátis
+        </a>
+        <span class="text-xs text-teal-300">Sem burocracias, sem cartão de crédito exigido.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 12. FOOTER -->
+  <!-- ========================================== -->
+  <footer class="bg-slate-900 text-slate-400 py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto space-y-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 text-xs">
+        
+        <!-- 1. Marca e descrição -->
+        <div class="md:col-span-6 space-y-3">
+          <div class="flex items-center gap-2 text-white">
+            <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.5 8.5 7 7"></path>
+            </svg>
+            <span class="font-display font-extrabold text-base text-white">Remédio em Dia</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed text-sm max-w-sm">
+            Organização para uma rotina de saúde mais segura, simples e tranquila.
+          </p>
+        </div>
+        
+        <!-- 2. Produto -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="font-display font-bold text-sm text-white tracking-wide">Produto</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#recursos" class="hover:text-white transition-colors">Recursos</a></li>
+            <li><a href="#como-funciona" class="hover:text-white transition-colors">Como funciona</a></li>
+            <li><a href="#planos" class="hover:text-white transition-colors">Planos</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. Suporte e segurança -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="font-display font-bold text-sm text-white tracking-wide">Suporte e segurança</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:contato@remedioemdia.com" class="hover:text-white transition-colors">Entre em contato</a></li>
+            <li><a href="privacidade.html" class="hover:text-white transition-colors">Privacidade</a></li>
+            <li><a href="termos.html" class="hover:text-white transition-colors">Termos de Uso</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <!-- 4. Aviso legal importante -->
+      <div class="pt-8 border-t border-slate-800 text-xs text-slate-500 leading-relaxed max-w-4xl mx-auto text-center">
+        <p>
+          <strong class="text-slate-500 font-semibold uppercase tracking-wider text-[11px] mr-1">AVISO LEGAL IMPORTANTE:</strong>
+          O Remédio em Dia é uma ferramenta de organização da rotina pessoal de medicamentos e informações relacionadas à saúde. O serviço não substitui diagnósticos, prescrições, orientações ou aconselhamento de médicos, farmacêuticos ou outros profissionais de saúde habilitados. Nunca interrompa, altere ou inicie um tratamento com base exclusivamente nas informações registradas ou apresentadas pelo aplicativo. Siga sempre as orientações do seu profissional de saúde.
+        </p>
+      </div>
+
+      <!-- 5. Rodapé inferior -->
+      <div class="pt-6 border-t border-slate-800/60 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Remédio em Dia. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL DE CADASTRO -->
+  <!-- ========================================== -->
+  <div id="signup-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 md:p-8 relative shadow-2xl overflow-hidden">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-50 transition">✕</button>
+      
+      <div id="modal-form-content">
+        <h3 class="font-display font-extrabold text-xl text-slate-900 tracking-tight leading-tight">Crie sua conta gratuita</h3>
+        <p class="text-xs text-slate-500 mt-2">Gerencie até 3 medicamentos ativos com total controle de estoque físico automático.</p>
+        
+        <form onsubmit="handleFormSubmit(event)" class="space-y-4 mt-4">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Nome Completo</label>
+            <input type="text" id="modal-name-input" required placeholder="Ex: Maria Souza" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 outline-none transition">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">E-mail</label>
+            <input type="email" required placeholder="Ex: maria@email.com" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 outline-none transition">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Senha</label>
+            <input type="password" required placeholder="Crie uma senha segura" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 outline-none transition">
+          </div>
+          
+          <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl mt-4 transition-all text-sm shadow-md active:scale-98">
+            Criar Minha Conta Grátis
+          </button>
+        </form>
+      </div>
+      
+      <div id="modal-success-content" class="hidden text-center py-6 space-y-4 flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 mb-2">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-display font-extrabold text-2xl text-teal-900 tracking-tight">Cadastro concluído!</h3>
+        <p class="text-xs text-slate-600 leading-relaxed max-w-sm">
+          Parabéns, <strong id="success-user-name">usuário</strong>! Seu cadastro gratuito foi concluído. Um link de confirmação foi enviado para o seu e-mail. Comece a organizar suas caixas de remédios agora mesmo!
+        </p>
+        <button onclick="closeModal()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all shadow-md">
+          Acessar Meu Painel de Demonstração
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- VANILLA JAVASCRIPT INLINE -->
+  <!-- ========================================== -->
+  <script>
+    // 1. Controle do Simulador de Doses Autocontido
+    let htmlDoses = { 1: true, 2: false, 3: false };
+    let htmlEventualCount = 0;
+    let expandedAppt = null;
+
+    function updateHtmlDashboard() {
+      // Calculate states
+      let tomados = 0;
+      let atrasados = 0;
+      let pendentes = 0;
+
+      if (htmlDoses[1]) tomados++; else atrasados++;
+      if (htmlDoses[2]) tomados++; else atrasados++;
+      if (htmlDoses[3]) tomados++; else pendentes++;
+
+      const total = 3;
+      const pct = Math.round((tomados / total) * 100);
+
+      // Update texts
+      document.getElementById('html-cnt-tomados').textContent = tomados;
+      document.getElementById('html-cnt-pendentes').textContent = pendentes;
+      document.getElementById('html-cnt-atrasados').textContent = atrasados;
+      const pctDisplay = document.getElementById('html-pct-display');
+      if (pctDisplay) pctDisplay.textContent = pct + '%';
+      document.getElementById('html-progress-desc').textContent = 'Você já completou ' + pct + '% da sua rotina hoje.';
+
+      // Update VitD stock based on checkstate
+      document.getElementById('html-vitd-stock').textContent = (htmlDoses[2] ? '2' : '3') + ' comprimidos';
+
+      // SVG Ring calculations
+      const c = 314.16;
+      const pctTomados = tomados / total;
+      const pctAtrasados = atrasados / total;
+      const pctPendentes = pendentes / total;
+
+      const ringTomados = document.getElementById('html-ring-tomados');
+      const ringAtrasados = document.getElementById('html-ring-atrasados');
+      const ringPendentes = document.getElementById('html-ring-pendentes');
+
+      if (pctTomados > 0) {
+        ringTomados.setAttribute('stroke-dasharray', (pctTomados * c) + ' ' + c);
+        ringTomados.setAttribute('stroke-dashoffset', '0');
+      } else {
+        ringTomados.setAttribute('stroke-dasharray', '0 ' + c);
+      }
+
+      if (pctAtrasados > 0) {
+        ringAtrasados.setAttribute('stroke-dasharray', (pctAtrasados * c) + ' ' + c);
+        ringAtrasados.setAttribute('stroke-dashoffset', (-pctTomados * c).toString());
+      } else {
+        ringAtrasados.setAttribute('stroke-dasharray', '0 ' + c);
+      }
+
+      if (pctPendentes > 0) {
+        ringPendentes.setAttribute('stroke-dasharray', (pctPendentes * c) + ' ' + c);
+        ringPendentes.setAttribute('stroke-dashoffset', (-(pctTomados + pctAtrasados) * c).toString());
+      } else {
+        ringPendentes.setAttribute('stroke-dasharray', '0 ' + c);
+      }
+    }
+
+    function toggleHtmlDose(id) {
+      htmlDoses[id] = !htmlDoses[id];
+      const isTaken = htmlDoses[id];
+
+      const card = document.getElementById('html-dose-card-' + id);
+      const btn = card.querySelector('button');
+      const heading = document.getElementById('html-dose-title-' + id);
+      const time = document.getElementById('html-dose-time-' + id);
+      const badge = document.getElementById('html-atrasado-badge');
+
+      if (isTaken) {
+        card.classList.add('opacity-75', 'scale-[0.98]', 'bg-slate-100/40');
+        btn.className = 'w-5 h-5 rounded-full flex items-center justify-center transition cursor-pointer bg-teal-500 border border-teal-500 text-white';
+        btn.innerHTML = '<svg class="w-3 h-3 stroke-[3]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>';
+        heading.className = 'text-[10px] font-extrabold text-slate-400 line-through';
+        time.className = 'text-[10px] font-black min-w-[32px] text-slate-400';
+        if (id === 2 && badge) badge.classList.add('hidden');
+      } else {
+        card.classList.remove('opacity-75', 'scale-[0.98]', 'bg-slate-100/40');
+        btn.className = 'w-5 h-5 rounded-full flex items-center justify-center transition cursor-pointer border bg-white ' + (id === 2 ? 'border-amber-400' : 'border-slate-300');
+        btn.innerHTML = '';
+        heading.className = 'text-[10px] font-extrabold text-slate-800';
+        time.className = 'text-[10px] font-black min-w-[32px] text-slate-700';
+        if (id === 2 && badge) badge.classList.remove('hidden');
+      }
+
+      updateHtmlDashboard();
+
+      // Toast notification
+      const names = { 1: 'Omeprazol', 2: 'Vitamina D', 3: 'Atenolol' };
+      triggerHtmlToast(isTaken ? '✅ Dose de ' + names[id] + ' registrada com sucesso!' : '🔄 Dose de ' + names[id] + ' desmarcada.');
+    }
+
+    let toastTimeout = null;
+    function triggerHtmlToast(msg) {
+      const toast = document.getElementById('html-toast-box');
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+
+    function toggleHtmlEventualSelector(show) {
+      const btn = document.getElementById('html-btn-dose-eventual');
+      const selector = document.getElementById('html-eventual-selector-card');
+      if (show) {
+        btn.classList.add('hidden');
+        selector.classList.remove('hidden');
+      } else {
+        btn.classList.remove('hidden');
+        selector.classList.add('hidden');
+      }
+    }
+
+    function registerHtmlEventualPill(name) {
+      htmlEventualCount++;
+      triggerHtmlToast('🎉 Dose eventual de ' + name + ' registrada com sucesso no histórico.');
+      toggleHtmlEventualSelector(false);
+    }
+
+    function setExpandedAppt(id) {
+      expandedAppt = (expandedAppt === id) ? null : id;
+      toggleHtmlAppt(expandedAppt);
+    }
+
+    function toggleHtmlAppt(type) {
+      const labExp = document.getElementById('html-appt-lab-expanded');
+      const labColl = document.getElementById('html-appt-lab-collapsed');
+      const armandoExp = document.getElementById('html-appt-armando-expanded');
+      const armandoColl = document.getElementById('html-appt-armando-collapsed');
+
+      if (type === 'lab') {
+        labExp.classList.remove('hidden');
+        labColl.classList.add('hidden');
+        armandoExp.classList.add('hidden');
+        armandoColl.classList.remove('hidden');
+      } else if (type === 'armando') {
+        labExp.classList.add('hidden');
+        labColl.classList.remove('hidden');
+        armandoExp.classList.remove('hidden');
+        armandoColl.classList.add('hidden');
+      } else {
+        labExp.classList.add('hidden');
+        labColl.classList.remove('hidden');
+        armandoExp.classList.add('hidden');
+        armandoColl.classList.remove('hidden');
+      }
+    }
+
+    // 2. Controle do FAQ Accordion
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-ans-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      const isHidden = ans.classList.contains('hidden');
+      
+      // Close all FAQs first for clean behavior
+      for(let i=1; i<=6; i++) {
+        const otherAns = document.getElementById('faq-ans-' + i);
+        const otherIcon = document.getElementById('faq-icon-' + i);
+        if (otherAns && i !== id) {
+          otherAns.classList.add('hidden');
+          otherIcon.textContent = '＋';
+          otherIcon.className = 'text-slate-400';
+        }
+      }
+
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        icon.textContent = '－';
+        icon.className = "text-teal-600 font-bold";
+      } else {
+        ans.classList.add('hidden');
+        icon.textContent = '＋';
+        icon.className = "text-slate-400";
+      }
+    }
+
+    // 3. Controle do Modal de Cadastro
+    function openModal() {
+      document.getElementById('signup-modal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('signup-modal').classList.add('hidden');
+      // Reset views
+      document.getElementById('modal-form-content').classList.remove('hidden');
+      document.getElementById('modal-success-content').classList.add('hidden');
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('modal-name-input').value;
+      document.getElementById('success-user-name').textContent = name;
+      document.getElementById('modal-form-content').classList.add('hidden');
+      document.getElementById('modal-success-content').classList.remove('hidden');
+    }
+
+    // Initialize circular graph
+    updateHtmlDashboard();
+  </script>
+</body>
+</html>
