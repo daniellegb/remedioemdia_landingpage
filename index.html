@@ -202,14 +202,13 @@
     </h1>
 
     <!-- Vídeo de Apresentação Vimeo -->
-    <div class="w-full max-w-3xl mx-auto my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 aspect-video">
-      <iframe
-        src="https://player.vimeo.com/video/1229716033"
-        class="w-full h-full border-0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        title="Vídeo de Apresentação Remédio em Dia"
-      ></iframe>
+    <div class="w-full max-w-3xl mx-auto my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 aspect-video relative group cursor-pointer" onclick="loadVimeo(this)" aria-label="Reproduzir vídeo de apresentação">
+      <img src="thumbnail.webp" alt="Capa do Vídeo de Apresentação Remédio em Dia" width="1280" height="720" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover opacity-100" />
+      <div class="absolute inset-0 flex items-center justify-center bg-transparent">
+        <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center shadow-xl group-hover:bg-teal-500 transition-transform group-hover:scale-110 duration-300">
+          <svg class="w-8 h-8 text-white ml-1 drop-shadow" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
     </div>
 
     <div class="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed space-y-4">
@@ -1532,6 +1531,20 @@ No futuro, também estarão disponíveis versões do Remédio em Dia nas lojas d
       document.getElementById('success-user-name').textContent = name;
       document.getElementById('modal-form-content').classList.add('hidden');
       document.getElementById('modal-success-content').classList.remove('hidden');
+    }
+
+    // 4. Carregamento do Vídeo Vimeo sob demanda
+    function loadVimeo(element) {
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://player.vimeo.com/video/1229716033?autoplay=1";
+      iframe.className = "w-full h-full border-0 absolute inset-0";
+      iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("title", "Vídeo de Apresentação Remédio em Dia");
+      element.innerHTML = '';
+      element.appendChild(iframe);
+      element.removeAttribute("onclick");
+      element.classList.remove("cursor-pointer", "group");
     }
 
     // Initialize circular graph
